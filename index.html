@@ -21,7 +21,6 @@
                 <li><a href="#tools" class="nav-link" data-section="tools">Tools</a></li>
                 <li><a href="#journal" class="nav-link" data-section="journal">Journal</a></li>
                 <li><a href="#community" class="nav-link" data-section="community">Community</a></li>
-                <li><a href="#chat" class="nav-link" data-section="chat">AI Chat</a></li>
                 <li><a href="#profile" class="nav-link" data-section="profile">Profile</a></li>
             </ul>
             <div class="hamburger">
@@ -52,7 +51,7 @@
                     <span class="word">Matters</span>
                 </h1>
                 <p class="hero-subtitle">AI-Powered Mental Wellness Companion with Crisis Support, Community, & Personalized Tools</p>
-                
+
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">10K+</span>
@@ -75,13 +74,16 @@
                     <button class="btn btn-secondary btn-large" onclick="navigateToSection('tools')">
                         <i class="fas fa-play"></i> Explore Tools
                     </button>
+                    <!-- NEW: Login button -->
+                    <button class="btn btn-secondary btn-large" onclick="openLoginModal()">
+                        <i class="fas fa-user"></i> Login
+                    </button>
                 </div>
 
                 <div class="hero-trust">
                     <p>🔒 100% Private • 🤖 AI-Powered • 💚 Completely Free</p>
                 </div>
             </div>
-
             <div class="hero-visual">
                 <div class="floating-card card-1">
                     <div class="card-icon">
@@ -117,15 +119,14 @@
         <!-- Divider -->
         <div class="section-divider"></div>
 
-        <!-- Features Overview with Enhanced Design -->
+        <!-- Features Overview -->
         <div class="features-section">
             <div class="features-header">
                 <h2>Everything You Need for Mental Wellness</h2>
                 <p>Comprehensive tools designed by experts, powered by AI</p>
             </div>
-
             <div class="features-grid">
-                <div class="feature-card feature-card-1" onclick="navigateToSection('mood')" style="cursor: pointer;">
+                <div class="feature-card feature-card-1">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
@@ -136,8 +137,7 @@
                         <span class="feature-tag">AI Insights</span>
                     </div>
                 </div>
-
-                <div class="feature-card feature-card-2" onclick="navigateToSection('tools')" style="cursor: pointer;">
+                <div class="feature-card feature-card-2">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-wind"></i>
@@ -148,8 +148,7 @@
                         <span class="feature-tag">Instant Relief</span>
                     </div>
                 </div>
-
-                <div class="feature-card feature-card-3" onclick="navigateToSection('community')" style="cursor: pointer;">
+                <div class="feature-card feature-card-3">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
@@ -160,8 +159,7 @@
                         <span class="feature-tag">Safe Space</span>
                     </div>
                 </div>
-
-                <div class="feature-card feature-card-4" onclick="navigateToSection('journal')" style="cursor: pointer;">
+                <div class="feature-card feature-card-4">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-book"></i>
@@ -172,8 +170,7 @@
                         <span class="feature-tag">Self-Discovery</span>
                     </div>
                 </div>
-
-                <div class="feature-card feature-card-5" onclick="navigateToSection('tools')" style="cursor: pointer;">
+                <div class="feature-card feature-card-5">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-moon"></i>
@@ -184,8 +181,7 @@
                         <span class="feature-tag">Better Sleep</span>
                     </div>
                 </div>
-
-                <div class="feature-card feature-card-6" onclick="navigateToSection('profile')" style="cursor: pointer;">
+                <div class="feature-card feature-card-6">
                     <div class="feature-glow"></div>
                     <div class="feature-icon">
                         <i class="fas fa-medal"></i>
@@ -254,7 +250,6 @@
             <h2>How are you feeling today?</h2>
             <p>Quick emotional check-in (takes 30 seconds)</p>
         </div>
-
         <div class="mood-container">
             <div class="mood-selector">
                 <div class="mood-option" data-mood="happy" data-emotion="happy">
@@ -282,7 +277,6 @@
                     <span>Stressed</span>
                 </div>
             </div>
-
             <div class="mood-details" id="moodDetails" style="display: none;">
                 <h3>Tell us more</h3>
                 <textarea id="moodText" placeholder="What's on your mind? (optional)"></textarea>
@@ -295,7 +289,6 @@
                 </div>
                 <button class="btn btn-primary" onclick="saveMood()">Save Mood Entry</button>
             </div>
-
             <div class="mood-insights" id="moodInsights" style="display: none;">
                 <h3>Your Insights</h3>
                 <div class="insight-card">
@@ -307,7 +300,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Mood Graph -->
         <div class="mood-graph-container">
             <h3>Your Mood This Week</h3>
@@ -323,327 +315,73 @@
             <h2>Wellness Tools</h2>
             <p>Interactive exercises for instant calm</p>
         </div>
-
         <div class="tools-grid">
             <!-- Breathing Exercise -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-wind"></i>
-                        </div>
-                        <h3>4-7-8 Breathing</h3>
-                        <p>Proven technique to reduce anxiety</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Quick Start</h4>
-                        <ul>
-                            <li>Breathe in for 4 counts</li>
-                            <li>Hold for 7 counts</li>
-                            <li>Exhale for 8 counts</li>
-                            <li>Repeat 4 times</li>
-                        </ul>
-                        <button class="btn btn-secondary" onclick="startBreathing(event)">Start Exercise</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-wind"></i>
                 </div>
+                <h3>4-7-8 Breathing</h3>
+                <p>Proven technique to reduce anxiety</p>
+                <button class="btn btn-secondary" onclick="startBreathing()">Start Exercise</button>
             </div>
-
             <!-- Panic SOS -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </div>
-                        <h3>Panic SOS</h3>
-                        <p>Immediate help during panic attacks</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>In Crisis?</h4>
-                        <p>Get immediate support and grounding techniques to help you through this moment.</p>
-                        <button class="btn btn-secondary" onclick="startPanicSOS(event)">Get Help Now</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-exclamation-circle"></i>
                 </div>
+                <h3>Panic SOS</h3>
+                <p>Immediate help during panic attacks</p>
+                <button class="btn btn-secondary" onclick="startPanicSOS()">Get Help Now</button>
             </div>
-
             <!-- Grounding Exercise -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3>5-4-3-2-1 Grounding</h3>
-                        <p>Emergency grounding technique</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Grounding Steps</h4>
-                        <ul>
-                            <li>5 things you see</li>
-                            <li>4 things you touch</li>
-                            <li>3 things you hear</li>
-                            <li>2 things you smell</li>
-                            <li>1 thing you taste</li>
-                        </ul>
-                        <button class="btn btn-secondary" onclick="startGrounding(event)">Begin</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-tree"></i>
                 </div>
+                <h3>5-4-3-2-1 Grounding</h3>
+                <p>Emergency grounding technique</p>
+                <button class="btn btn-secondary" onclick="startGrounding()">Begin</button>
             </div>
-
             <!-- Sleep Story -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <h3>Sleep Stories</h3>
-                        <p>Guided meditations for better sleep</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Relax & Sleep</h4>
-                        <p>Listen to soothing stories and guided meditations designed to help you drift off peacefully.</p>
-                        <button class="btn btn-secondary" onclick="startSleepStory(event)">Listen</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-moon"></i>
                 </div>
+                <h3>Sleep Stories</h3>
+                <p>Guided meditations for better sleep</p>
+                <button class="btn btn-secondary" onclick="startSleepStory()">Listen</button>
             </div>
-
             <!-- Mindful Break -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-hourglass-half"></i>
-                        </div>
-                        <h3>1-Minute Calm</h3>
-                        <p>Quick mindfulness break</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Take a Break</h4>
-                        <p>A quick 1-minute mindfulness exercise to reset your mind and reduce stress instantly.</p>
-                        <button class="btn btn-secondary" onclick="startMindfulBreak(event)">Start</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-hourglass-half"></i>
                 </div>
+                <h3>1-Minute Calm</h3>
+                <p>Quick mindfulness break</p>
+                <button class="btn btn-secondary" onclick="startMindfulBreak()">Start</button>
             </div>
-
             <!-- Anxiety Timer -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Anxiety Timer</h3>
-                        <p>Track and manage anxiety episodes</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Track Anxiety</h4>
-                        <p>Monitor your anxiety levels and identify patterns to better manage your emotional health.</p>
-                        <button class="btn btn-secondary" onclick="startAnxietyTimer(event)">Begin</button>
-                    </div>
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-clock"></i>
                 </div>
+                <h3>Anxiety Timer</h3>
+                <p>Track and manage anxiety episodes</p>
+                <button class="btn btn-secondary" onclick="startAnxietyTimer()">Begin</button>
             </div>
 
-            <!-- Guided Meditation -->
-            <div class="tool-card-wrapper" onclick="flipCard(this)">
-                <div class="tool-card">
-                    <div class="card-front">
-                        <div class="tool-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <h3>Guided Meditation</h3>
-                        <p>Peaceful meditation for inner calm</p>
-                    </div>
-                    <div class="card-back">
-                        <h4>Find Peace</h4>
-                        <p>A guided meditation session to help you find inner peace and tranquility.</p>
-                        <button class="btn btn-secondary" onclick="startGuidedMeditation(event)">Start</button>
-                    </div>
+            <!-- Voice Record Tool -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-microphone"></i>
                 </div>
-            </div>
-        </div>
-
-        <!-- Meditation Videos -->
-        <div class="meditation-videos" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">Meditation Videos</h3>
-            <div class="meditation-grid">
-                <div class="meditation-card">
-                    <div class="meditation-video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h4>5-Minute Calm</h4>
-                    <p>Quick meditation for busy days</p>
-                    <button class="btn btn-secondary" onclick="playMeditationVideo('calm')">Watch</button>
-                </div>
-
-                <div class="meditation-card">
-                    <div class="meditation-video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h4>10-Minute Focus</h4>
-                    <p>Enhance concentration and clarity</p>
-                    <button class="btn btn-secondary" onclick="playMeditationVideo('focus')">Watch</button>
-                </div>
-
-                <div class="meditation-card">
-                    <div class="meditation-video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h4>15-Minute Deep Rest</h4>
-                    <p>Complete relaxation and restoration</p>
-                    <button class="btn btn-secondary" onclick="playMeditationVideo('rest')">Watch</button>
-                </div>
-
-                <div class="meditation-card">
-                    <div class="meditation-video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h4>Anxiety Relief</h4>
-                    <p>Calm your mind and body</p>
-                    <button class="btn btn-secondary" onclick="playMeditationVideo('anxiety')">Watch</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Meditation Tones -->
-        <div class="meditation-tones" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">Meditation Tones & Sounds</h3>
-            <div class="tones-grid">
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h4>Binaural Beats</h4>
-                    <p>Theta waves for deep meditation</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('binaural')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h4>Ocean Waves</h4>
-                    <p>Soothing sounds of the sea</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('ocean')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>Forest Rain</h4>
-                    <p>Peaceful rain in nature</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('rain')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <h4>Singing Bowls</h4>
-                    <p>Healing vibrations and tones</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('bowls')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <h4>Gentle Breeze</h4>
-                    <p>Soft wind through trees</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('breeze')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h4>Fireplace Crackling</h4>
-                    <p>Warm and cozy ambiance</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('fire')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h4>Zen Garden</h4>
-                    <p>Peaceful meditation ambiance</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('zen')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tone-card">
-                    <div class="tone-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h4>Heartbeat</h4>
-                    <p>Calming rhythmic pulse</p>
-                    <div class="tone-controls">
-                        <button class="btn btn-small" onclick="playTone('heartbeat')">
-                            <i class="fas fa-play"></i> Play
-                        </button>
-                        <button class="btn btn-small" onclick="stopTone()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Meditation Video Modal -->
-        <div id="meditationModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeMeditationModal()">&times;</span>
-                <div id="meditationContent"></div>
+                <h3>Voice Note</h3>
+                <p>Record and listen to your thoughts</p>
+                <button class="btn" id="voiceRecord">Record</button>
+                <button class="btn" id="voiceStop">Stop</button>
+                <audio id="voicePlayer" controls></audio>
+                <textarea id="voiceTranscript" placeholder="Transcript"></textarea>
             </div>
         </div>
 
@@ -662,7 +400,6 @@
             <h2>Mood Journal</h2>
             <p>Reflect on your emotions and track patterns</p>
         </div>
-
         <div class="journal-container">
             <div class="journal-input">
                 <h3>New Journal Entry</h3>
@@ -676,13 +413,11 @@
                 </div>
                 <button class="btn btn-primary" onclick="saveJournalEntry()">Save Entry</button>
             </div>
-
             <div class="journal-entries">
                 <h3>Recent Entries</h3>
                 <div id="journalList"></div>
             </div>
         </div>
-
         <!-- AI Reflection Questions -->
         <div class="reflection-box">
             <h3>AI Reflection Questions</h3>
@@ -709,7 +444,6 @@
             <h2>Community Support</h2>
             <p>100% Anonymous • Safe Space • Moderated</p>
         </div>
-
         <div class="community-container">
             <div class="community-tabs">
                 <button class="tab-btn active" onclick="switchCommunityTab('feed')">Feed</button>
@@ -734,7 +468,6 @@
                         <button onclick="replyPost(this)"><i class="fas fa-comment"></i> 5</button>
                     </div>
                 </div>
-
                 <div class="post-card">
                     <div class="post-header">
                         <span class="anonymous">Anonymous User</span>
@@ -755,27 +488,35 @@
             <!-- Groups Tab -->
             <div id="groups" class="tab-content">
                 <div class="group-card">
-                    <h4>Stress & Work</h4>
-                    <p>For people dealing with work-related stress</p>
-                    <span class="member-count">2,340 members</span>
+                    <div>
+                        <h4>Stress & Work</h4>
+                        <p>For people dealing with work-related stress</p>
+                        <span class="member-count">2,340 members</span>
+                    </div>
                     <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
                 </div>
                 <div class="group-card">
-                    <h4>Loneliness & Connection</h4>
-                    <p>Building meaningful relationships</p>
-                    <span class="member-count">1,890 members</span>
+                    <div>
+                        <h4>Loneliness & Connection</h4>
+                        <p>Building meaningful relationships</p>
+                        <span class="member-count">1,890 members</span>
+                    </div>
                     <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
                 </div>
                 <div class="group-card">
-                    <h4>Breakups & Heartbreak</h4>
-                    <p>Healing and moving forward</p>
-                    <span class="member-count">1,560 members</span>
+                    <div>
+                        <h4>Breakups & Heartbreak</h4>
+                        <p>Healing and moving forward</p>
+                        <span class="member-count">1,560 members</span>
+                    </div>
                     <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
                 </div>
                 <div class="group-card">
-                    <h4>Exam Pressure</h4>
-                    <p>Students supporting students</p>
-                    <span class="member-count">3,120 members</span>
+                    <div>
+                        <h4>Exam Pressure</h4>
+                        <p>Students supporting students</p>
+                        <span class="member-count">3,120 members</span>
+                    </div>
                     <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
                 </div>
             </div>
@@ -803,7 +544,6 @@
             <h2>Your Profile</h2>
             <p>Track your progress and achievements</p>
         </div>
-
         <div class="profile-container">
             <!-- User Stats -->
             <div class="profile-stats">
@@ -891,93 +631,12 @@
         </div>
     </section>
 
-    <!-- AI Chat Support Section -->
-    <section id="chat" class="section">
-        <div class="section-header">
-            <h2>AI Chat Support</h2>
-            <p>Get instant help and support from our AI assistant</p>
-        </div>
-
-        <div class="chat-container">
-            <!-- Chat Header -->
-            <div class="chat-header">
-                <h3>AI Chat Support</h3>
-                <div class="chat-controls">
-                    <button class="chat-settings-btn" onclick="openLanguageSettings()" title="Language Settings">
-                        <i class="fas fa-cog"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Chat Messages Area -->
-            <div class="chat-messages" id="chatMessages">
-                <div class="chat-message ai-message">
-                    <div class="message-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="message-content">
-                        <p id="welcomeMessage">Hello! I'm here to listen and support you. How are you feeling today? You can type or use voice.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Listening Status -->
-            <div class="listening-status" id="listeningStatus" style="display: none;">
-                <div class="listening-indicator">
-                    <span class="pulse"></span>
-                    <span id="listeningText">Listening...</span>
-                </div>
-            </div>
-
-            <!-- Chat Input Area -->
-            <div class="chat-input-area">
-                <div class="input-wrapper">
-                    <input 
-                        type="text" 
-                        id="chatInput" 
-                        placeholder="Type your message or click mic to speak..." 
-                        onkeypress="handleChatKeypress(event)"
-                    >
-                    <button class="mic-btn" onclick="toggleVoiceInput()" title="Click to speak">
-                        <i class="fas fa-microphone"></i>
-                    </button>
-                </div>
-                <button class="send-btn" onclick="sendChatMessage()" title="Send message">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Language Settings Modal -->
-    <div id="languageModal" class="modal">
-        <div class="modal-content language-modal">
-            <span class="close" onclick="closeLanguageSettings()">&times;</span>
-            <h2>Select Language</h2>
-            <div class="language-options">
-                <button class="language-btn" onclick="setLanguage('en')">
-                    <i class="fas fa-check" id="check-en"></i>
-                    <span>English</span>
-                </button>
-                <button class="language-btn" onclick="setLanguage('hi')">
-                    <i class="fas fa-check" id="check-hi"></i>
-                    <span>हिंदी (Hindi)</span>
-                </button>
-                <button class="language-btn" onclick="setLanguage('mr')">
-                    <i class="fas fa-check" id="check-mr"></i>
-                    <span>मराठी (Marathi)</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Mind-Care Feed Section -->
     <section id="feed-section" class="section">
         <div class="section-header">
             <h2>Daily Mind-Care Feed</h2>
             <p>Scroll for quick tips, affirmations & meditations</p>
         </div>
-
         <div class="mindcare-feed">
             <div class="feed-card">
                 <div class="feed-type">💡 Tip</div>
@@ -1024,6 +683,100 @@
             </div>
             <button class="btn btn-primary" onclick="connectWithTherapist()">Connect with Therapist</button>
             <button class="btn btn-secondary" onclick="closeCrisisModal()">I'm Safe</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content" style="max-width: 480px;">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1rem;">Login / Register</h2>
+
+            <!-- Role Tabs -->
+            <div class="role-tabs">
+                <button class="role-tab active" data-role="client" onclick="switchRole('client')">
+                    Client
+                </button>
+                <button class="role-tab" data-role="doctor" onclick="switchRole('doctor')">
+                    Doctor
+                </button>
+            </div>
+
+            <!-- Client Form -->
+            <form id="clientForm" class="role-form active" onsubmit="handleClientSubmit(event)">
+                <h3 style="text-align: center; margin-bottom: 0.8rem;">Client Details</h3>
+                <div class="form-row">
+                    <label>Full Name</label>
+                    <input type="text" id="clientName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-row">
+                    <label>Age</label>
+                    <input type="number" id="clientAge" min="1" max="120" placeholder="Enter your age" required>
+                </div>
+                <div class="form-row">
+                    <label>Email</label>
+                    <input type="email" id="clientEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-row">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="clientMobile" placeholder="10-digit mobile number" required>
+                </div>
+                <div class="form-row">
+                    <label>Gender</label>
+                    <select id="clientGender" required>
+                        <option value="">Select</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_say">Prefer not to say</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Continue as Client
+                </button>
+            </form>
+
+            <!-- Doctor Form -->
+            <form id="doctorForm" class="role-form" onsubmit="handleDoctorSubmit(event)">
+                <h3 style="text-align: center; margin-bottom: 0.8rem;">Doctor Details</h3>
+                <div class="form-row">
+                    <label>Full Name</label>
+                    <input type="text" id="doctorName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-row">
+                    <label>Age</label>
+                    <input type="number" id="doctorAge" min="22" max="90" placeholder="Enter your age" required>
+                </div>
+                <div class="form-row">
+                    <label>Email</label>
+                    <input type="email" id="doctorEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-row">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="doctorMobile" placeholder="10-digit mobile number" required>
+                </div>
+                <div class="form-row">
+                    <label>Gender</label>
+                    <select id="doctorGender" required>
+                        <option value="">Select</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Specialization</label>
+                    <input type="text" id="doctorSpecialization" placeholder="Psychiatrist, Psychologist, etc." required>
+                </div>
+                <div class="form-row">
+                    <label>Registration / License No.</label>
+                    <input type="text" id="doctorRegNo" placeholder="Medical registration number" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Continue as Doctor
+                </button>
+            </form>
         </div>
     </div>
 
