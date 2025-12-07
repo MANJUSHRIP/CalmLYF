@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmLYF - Your Mental Wellness Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Intro/Welcome Form (First Screen) -->
+    <div id="introModal" class="intro-modal">
+        <div class="intro-container">
+            <div class="intro-content">
+                <div class="intro-logo">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h1>CalmLYF</h1>
+                <p class="intro-subtitle">Your Mental Wellness Companion</p>
+                <div class="intro-description">
+                    <p>Welcome to a space where your mental health matters. CalmLYF is here to support your emotional well-being with AI-powered tools, community support, and 24/7 assistance.</p>
+                </div>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <i class="fas fa-lock"></i>
+                        <span>100% Private</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-robot"></i>
+                        <span>AI-Powered</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Always Free</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-large" onclick="proceedFromIntro()">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="intro-footer">Let's begin your wellness journey</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>CalmLYF</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#mood" class="nav-link" data-section="mood">Mood Check</a></li>
+                <li><a href="#tools" class="nav-link" data-section="tools">Tools</a></li>
+                <li><a href="#journal" class="nav-link" data-section="journal">Journal</a></li>
+                <li><a href="#community" class="nav-link" data-section="community">Community</a></li>
+                <li><a href="#chat" class="nav-link" data-section="chat">AI Chat</a></li>
+                <li><a href="#sessions" class="nav-link" data-section="sessions">Sessions</a></li>
+                <li><a href="#profile" class="nav-link" data-section="profile">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-logout-btn" onclick="logoutFromClient()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <!-- Background Animation -->
+        <div class="background-animation">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Welcome to Your Wellness Journey</div>
+                <h1 class="hero-title">
+                    <span class="word">Your</span>
+                    <span class="word">Mental</span>
+                    <span class="word">Health</span>
+                    <span class="word">Matters</span>
+                </h1>
+                <p class="hero-subtitle">AI-Powered Mental Wellness Companion with Crisis Support, Community, & Personalized Tools</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-text">Users Supported</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-text">Moods Tracked</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-text">Support Available</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="navigateToSection('mood')">
+                        <i class="fas fa-heart"></i> Start Your Journey
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="navigateToSection('tools')">
+                        <i class="fas fa-play"></i> Explore Tools
+                    </button>
+                </div>
+
+                <div class="hero-trust">
+                    <p>🔒 100% Private • 🤖 AI-Powered • 💚 Completely Free</p>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <p>Mental Health</p>
+                    <span class="card-badge">24/7</span>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <p>Mindfulness</p>
+                    <span class="card-badge">AI</span>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <p>Wellness</p>
+                    <span class="card-badge">Free</span>
+                </div>
+                <div class="floating-card card-4">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <p>Growth</p>
+                    <span class="card-badge">New</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Therapist Matching Section -->
+        <div class="therapist-matching-wrapper">
+            <h2 class="therapist-matching-title">Professional and qualified therapists who you can trust</h2>
+            <div class="therapist-matching-section">
+                <div class="therapist-matching-content">
+                    <div class="therapist-matching-text">
+                        <p>Tap into the world's largest network of qualified and experienced therapists who can help you with a range of issues including depression, anxiety, relationships, trauma, grief, and more. With our therapists, you get the same professionalism and quality you would expect from an in-office therapist, but with the ability to communicate when and how you want.</p>
+                        <button class="btn btn-primary btn-large" onclick="openTherapistMatching()">
+                            Get matched to a therapist
+                        </button>
+                    </div>
+                    <div class="therapist-matching-visual">
+                        <div class="therapist-ball therapist-1">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Therapist" class="therapist-photo">
+                        </div>
+                        <div class="therapist-ball therapist-2">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Therapist" class="therapist-photo">
+                        </div>
+                        <div class="therapist-ball therapist-3">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Therapist" class="therapist-photo">
+                        </div>
+                        <div class="therapist-ball therapist-4">
+                            <img src="https://i.pravatar.cc/150?img=20" alt="Therapist" class="therapist-photo">
+                        </div>
+                        <div class="therapist-ball therapist-5">
+                            <img src="https://i.pravatar.cc/150?img=33" alt="Therapist" class="therapist-photo">
+                        </div>
+                        <div class="therapist-ball therapist-6">
+                            <img src="https://i.pravatar.cc/150?img=47" alt="Therapist" class="therapist-photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Features Overview with Enhanced Design -->
+        <div class="features-section">
+            <div class="features-header">
+                <h2>Everything You Need for Mental Wellness</h2>
+                <p>Comprehensive tools designed by experts, powered by AI</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card feature-card-1" onclick="navigateToSection('mood')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Mood Tracking</h3>
+                    <p>Log your daily mood and get AI-powered insights into your emotional patterns</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">AI Insights</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-2" onclick="navigateToSection('tools')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Breathing Tools</h3>
+                    <p>Interactive breathing exercises for instant calm and anxiety relief</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">Instant Relief</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-3" onclick="navigateToSection('community')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Anonymous Community</h3>
+                    <p>100% anonymous support from people who truly understand</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">Safe Space</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-4" onclick="navigateToSection('journal')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Smart Journaling</h3>
+                    <p>Reflect and track your emotional journey with AI reflection questions</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">Self-Discovery</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-5" onclick="navigateToSection('tools')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3>Sleep Stories</h3>
+                    <p>Guided meditations and sleep stories for better rest and recovery</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">Better Sleep</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-6" onclick="navigateToSection('profile')" style="cursor: pointer;">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Achievements</h3>
+                    <p>Earn badges, build streaks, and celebrate your wellness wins</p>
+                    <div class="feature-footer">
+                        <span class="feature-tag">Gamified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose CalmLYF -->
+        <div class="why-section">
+            <h2>Why Choose CalmLYF?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🔐</div>
+                    <h4>100% Private</h4>
+                    <p>Your data stays on your device. No tracking, no sharing.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤖</div>
+                    <h4>AI-Powered</h4>
+                    <p>Smart insights that understand your emotional patterns.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💚</div>
+                    <h4>Always Free</h4>
+                    <p>All features available at no cost. Mental health for everyone.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🌍</div>
+                    <h4>Multilingual</h4>
+                    <p>Support in 8 languages including Hindi, Tamil, Telugu & more.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🆘</div>
+                    <h4>Crisis Support</h4>
+                    <p>Instant help with crisis detection and emergency resources.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">👥</div>
+                    <h4>Community</h4>
+                    <p>Connect anonymously with thousands of supportive people.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gift Membership Section -->
+        <div class="gift-membership-section">
+            <div class="gift-membership-content">
+                <div class="gift-membership-text">
+                    <h2>Give the gift of a CalmLYF membership</h2>
+                    <p>Therapy is one of the most meaningful gifts you can give to your friends and loved ones.</p>
+                    <button class="btn btn-primary btn-large" onclick="openGiftForm()">
+                        Gift a membership
+                    </button>
+                </div>
+                <div class="gift-membership-visual">
+                    <div class="gift-image-placeholder">
+                        <i class="fas fa-gift"></i>
+                        <div class="gift-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Mental Health?</h2>
+                <p>Join thousands of users who are already experiencing better emotional well-being</p>
+                <button class="btn btn-primary btn-large" onclick="navigateToSection('mood')">
+                    Get Started Now <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Check Section -->
+    <section id="mood" class="section">
+        <div class="section-header">
+            <h2>How are you feeling today?</h2>
+            <p>Quick emotional check-in (takes 30 seconds)</p>
+        </div>
+
+        <div class="mood-container">
+            <div class="mood-selector">
+                <div class="mood-option" data-mood="happy" data-emotion="happy">
+                    <i class="fas fa-grin-stars"></i>
+                    <span>Happy</span>
+                </div>
+                <div class="mood-option" data-mood="calm" data-emotion="calm">
+                    <i class="fas fa-spa"></i>
+                    <span>Calm</span>
+                </div>
+                <div class="mood-option" data-mood="neutral" data-emotion="neutral">
+                    <i class="fas fa-meh"></i>
+                    <span>Neutral</span>
+                </div>
+                <div class="mood-option" data-mood="anxious" data-emotion="anxiety">
+                    <i class="fas fa-flushed"></i>
+                    <span>Anxious</span>
+                </div>
+                <div class="mood-option" data-mood="sad" data-emotion="sadness">
+                    <i class="fas fa-frown"></i>
+                    <span>Sad</span>
+                </div>
+                <div class="mood-option" data-mood="stressed" data-emotion="stress">
+                    <i class="fas fa-tired"></i>
+                    <span>Stressed</span>
+                </div>
+            </div>
+
+            <div class="mood-details" id="moodDetails" style="display: none;">
+                <h3>Tell us more</h3>
+                <textarea id="moodText" placeholder="What's on your mind? (optional)"></textarea>
+                <div class="emotion-tags">
+                    <label><input type="checkbox" value="stress"> Stress</label>
+                    <label><input type="checkbox" value="sadness"> Sadness</label>
+                    <label><input type="checkbox" value="anger"> Anger</label>
+                    <label><input type="checkbox" value="anxiety"> Anxiety</label>
+                    <label><input type="checkbox" value="confusion"> Confusion</label>
+                </div>
+                <button class="btn btn-primary" onclick="saveMood()">Save Mood Entry</button>
+            </div>
+
+            <div class="mood-insights" id="moodInsights" style="display: none;">
+                <h3>Your Insights</h3>
+                <div class="insight-card">
+                    <p id="insightText"></p>
+                    <div class="suggested-action">
+                        <h4>Suggested Action:</h4>
+                        <p id="suggestedAction"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mood Graph -->
+        <div class="mood-graph-container">
+            <h3>Your Mood This Week</h3>
+            <div class="mood-chart">
+                <canvas id="moodChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section">
+        <div class="section-header">
+            <h2>Wellness Tools</h2>
+            <p>Interactive exercises for instant calm</p>
+        </div>
+
+        <div class="tools-grid">
+            <!-- Breathing Exercise -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>4-7-8 Breathing</h3>
+                        <p>Proven technique to reduce anxiety</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Quick Start</h4>
+                        <ul>
+                            <li>Breathe in for 4 counts</li>
+                            <li>Hold for 7 counts</li>
+                            <li>Exhale for 8 counts</li>
+                            <li>Repeat 4 times</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="startBreathing(event)">Start Exercise</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panic SOS -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <h3>Panic SOS</h3>
+                        <p>Immediate help during panic attacks</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>In Crisis?</h4>
+                        <p>Get immediate support and grounding techniques to help you through this moment.</p>
+                        <button class="btn btn-secondary" onclick="startPanicSOS(event)">Get Help Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grounding Exercise -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3>5-4-3-2-1 Grounding</h3>
+                        <p>Emergency grounding technique</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Grounding Steps</h4>
+                        <ul>
+                            <li>5 things you see</li>
+                            <li>4 things you touch</li>
+                            <li>3 things you hear</li>
+                            <li>2 things you smell</li>
+                            <li>1 thing you taste</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="startGrounding(event)">Begin</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sleep Story -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3>Sleep Stories</h3>
+                        <p>Guided meditations for better sleep</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Relax & Sleep</h4>
+                        <p>Listen to soothing stories and guided meditations designed to help you drift off peacefully.</p>
+                        <button class="btn btn-secondary" onclick="startSleepStory(event)">Listen</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mindful Break -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <h3>1-Minute Calm</h3>
+                        <p>Quick mindfulness break</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Take a Break</h4>
+                        <p>A quick 1-minute mindfulness exercise to reset your mind and reduce stress instantly.</p>
+                        <button class="btn btn-secondary" onclick="startMindfulBreak(event)">Start</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anxiety Timer -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Anxiety Timer</h3>
+                        <p>Track and manage anxiety episodes</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Track Anxiety</h4>
+                        <p>Monitor your anxiety levels and identify patterns to better manage your emotional health.</p>
+                        <button class="btn btn-secondary" onclick="startAnxietyTimer(event)">Begin</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guided Meditation -->
+            <div class="tool-card-wrapper" onclick="flipCard(this)">
+                <div class="tool-card">
+                    <div class="card-front">
+                        <div class="tool-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>Guided Meditation</h3>
+                        <p>Peaceful meditation for inner calm</p>
+                    </div>
+                    <div class="card-back">
+                        <h4>Find Peace</h4>
+                        <p>A guided meditation session to help you find inner peace and tranquility.</p>
+                        <button class="btn btn-secondary" onclick="startGuidedMeditation(event)">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meditation Videos -->
+        <div class="meditation-videos" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">Meditation Videos</h3>
+            <div class="meditation-grid">
+                <div class="meditation-card">
+                    <div class="meditation-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h4>5-Minute Calm</h4>
+                    <p>Quick meditation for busy days</p>
+                    <button class="btn btn-secondary" onclick="playMeditationVideo('calm')">Watch</button>
+                </div>
+
+                <div class="meditation-card">
+                    <div class="meditation-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h4>10-Minute Focus</h4>
+                    <p>Enhance concentration and clarity</p>
+                    <button class="btn btn-secondary" onclick="playMeditationVideo('focus')">Watch</button>
+                </div>
+
+                <div class="meditation-card">
+                    <div class="meditation-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h4>15-Minute Deep Rest</h4>
+                    <p>Complete relaxation and restoration</p>
+                    <button class="btn btn-secondary" onclick="playMeditationVideo('rest')">Watch</button>
+                </div>
+
+                <div class="meditation-card">
+                    <div class="meditation-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h4>Anxiety Relief</h4>
+                    <p>Calm your mind and body</p>
+                    <button class="btn btn-secondary" onclick="playMeditationVideo('anxiety')">Watch</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meditation Tones -->
+        <div class="meditation-tones" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">Meditation Tones & Sounds</h3>
+            <div class="tones-grid">
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h4>Binaural Beats</h4>
+                    <p>Theta waves for deep meditation</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('binaural')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h4>Ocean Waves</h4>
+                    <p>Soothing sounds of the sea</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('ocean')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Forest Rain</h4>
+                    <p>Peaceful rain in nature</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('rain')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h4>Singing Bowls</h4>
+                    <p>Healing vibrations and tones</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('bowls')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h4>Gentle Breeze</h4>
+                    <p>Soft wind through trees</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('breeze')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4>Fireplace Crackling</h4>
+                    <p>Warm and cozy ambiance</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('fire')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h4>Zen Garden</h4>
+                    <p>Peaceful meditation ambiance</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('zen')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tone-card">
+                    <div class="tone-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Heartbeat</h4>
+                    <p>Calming rhythmic pulse</p>
+                    <div class="tone-controls">
+                        <button class="btn btn-small" onclick="playTone('heartbeat')">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="btn btn-small" onclick="stopTone()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meditation Video Modal -->
+        <div id="meditationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeMeditationModal()">&times;</span>
+                <div id="meditationContent"></div>
+            </div>
+        </div>
+
+        <!-- Active Tool Modal -->
+        <div id="toolModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeToolModal()">&times;</span>
+                <div id="toolContent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="section">
+        <div class="section-header">
+            <h2>Mood Journal</h2>
+            <p>Reflect on your emotions and track patterns</p>
+        </div>
+
+        <div class="journal-container">
+            <div class="journal-input">
+                <h3>New Journal Entry</h3>
+                <input type="text" id="journalTitle" placeholder="Title (optional)">
+                <textarea id="journalText" placeholder="What's on your mind today?"></textarea>
+                <div class="journal-tags">
+                    <label><input type="checkbox" value="gratitude"> Gratitude</label>
+                    <label><input type="checkbox" value="reflection"> Reflection</label>
+                    <label><input type="checkbox" value="goals"> Goals</label>
+                    <label><input type="checkbox" value="challenges"> Challenges</label>
+                </div>
+                <button class="btn btn-primary" onclick="saveJournalEntry()">Save Entry</button>
+            </div>
+
+            <div class="journal-entries">
+                <h3>Recent Entries</h3>
+                <div id="journalList"></div>
+            </div>
+        </div>
+
+        <!-- AI Reflection Questions -->
+        <div class="reflection-box">
+            <h3>AI Reflection Questions</h3>
+            <div class="reflection-questions">
+                <div class="question-card">
+                    <p>"What triggered your stress today?"</p>
+                    <textarea placeholder="Your answer..."></textarea>
+                </div>
+                <div class="question-card">
+                    <p>"What made you feel good today?"</p>
+                    <textarea placeholder="Your answer..."></textarea>
+                </div>
+                <div class="question-card">
+                    <p>"What do you want to improve tomorrow?"</p>
+                    <textarea placeholder="Your answer..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section">
+        <div class="section-header">
+            <h2>Community Support</h2>
+            <p>100% Anonymous • Safe Space • Moderated</p>
+        </div>
+
+        <div class="community-container">
+            <div class="community-tabs">
+                <button class="tab-btn active" onclick="switchCommunityTab('feed')">Feed</button>
+                <button class="tab-btn" onclick="switchCommunityTab('groups')">Support Groups</button>
+                <button class="tab-btn" onclick="switchCommunityTab('share')">Share Your Story</button>
+            </div>
+
+            <!-- Feed Tab -->
+            <div id="feed" class="tab-content active">
+                <div class="post-card">
+                    <div class="post-header">
+                        <span class="anonymous">Anonymous User</span>
+                        <span class="post-time">2 hours ago</span>
+                    </div>
+                    <p class="post-content">Just finished my first meditation session. Feeling so much calmer now! 🧘</p>
+                    <div class="post-tags">
+                        <span class="tag">Mindfulness</span>
+                        <span class="tag">Success</span>
+                    </div>
+                    <div class="post-actions">
+                        <button onclick="likePost(this)"><i class="fas fa-heart"></i> 24</button>
+                        <button onclick="replyPost(this)"><i class="fas fa-comment"></i> 5</button>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <span class="anonymous">Anonymous User</span>
+                        <span class="post-time">4 hours ago</span>
+                    </div>
+                    <p class="post-content">Struggling with exam pressure. Anyone else feeling the same? Would love to talk.</p>
+                    <div class="post-tags">
+                        <span class="tag">Exam Stress</span>
+                        <span class="tag">Support</span>
+                    </div>
+                    <div class="post-actions">
+                        <button onclick="likePost(this)"><i class="fas fa-heart"></i> 18</button>
+                        <button onclick="replyPost(this)"><i class="fas fa-comment"></i> 12</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Groups Tab -->
+            <div id="groups" class="tab-content">
+                <div class="group-card">
+                    <h4>Stress & Work</h4>
+                    <p>For people dealing with work-related stress</p>
+                    <span class="member-count">2,340 members</span>
+                    <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
+                </div>
+                <div class="group-card">
+                    <h4>Loneliness & Connection</h4>
+                    <p>Building meaningful relationships</p>
+                    <span class="member-count">1,890 members</span>
+                    <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
+                </div>
+                <div class="group-card">
+                    <h4>Breakups & Heartbreak</h4>
+                    <p>Healing and moving forward</p>
+                    <span class="member-count">1,560 members</span>
+                    <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
+                </div>
+                <div class="group-card">
+                    <h4>Exam Pressure</h4>
+                    <p>Students supporting students</p>
+                    <span class="member-count">3,120 members</span>
+                    <button class="btn btn-secondary" onclick="joinGroup(this)">Join</button>
+                </div>
+            </div>
+
+            <!-- Share Tab -->
+            <div id="share" class="tab-content">
+                <div class="share-form">
+                    <h3>Share Your Story (Anonymous)</h3>
+                    <textarea id="shareText" placeholder="What would you like to share? Your identity will remain completely anonymous."></textarea>
+                    <div class="share-tags">
+                        <label><input type="checkbox" value="stress"> Stress</label>
+                        <label><input type="checkbox" value="sadness"> Sadness</label>
+                        <label><input type="checkbox" value="anxiety"> Anxiety</label>
+                        <label><input type="checkbox" value="success"> Success</label>
+                    </div>
+                    <button class="btn btn-primary" onclick="shareStory()">Post Anonymously</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessions Section -->
+    <section id="sessions" class="section">
+        <div class="section-header">
+            <h2>📅 My Sessions</h2>
+            <p>View and manage your therapy sessions</p>
+        </div>
+
+        <div class="sessions-container" style="max-width: 1000px; margin: 0 auto;">
+            <div id="sessionsList" style="display: grid; gap: 1.5rem;">
+                <!-- Sessions will be loaded here -->
+            </div>
+            <div id="rescheduleNotifications" style="margin-top: 2rem;">
+                <!-- Reschedule notifications will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="section">
+        <div class="section-header">
+            <h2>Your Profile</h2>
+            <p>Track your progress and achievements</p>
+        </div>
+
+        <div class="profile-container">
+            <!-- User Stats -->
+            <div class="profile-stats">
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Mood Entries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Journal Entries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">450</div>
+                    <div class="stat-label">CalmCoins</div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="achievements-section">
+                <h3>Achievements</h3>
+                <div class="achievements-grid">
+                    <div class="achievement unlocked">
+                        <i class="fas fa-star"></i>
+                        <p>First Step</p>
+                    </div>
+                    <div class="achievement unlocked">
+                        <i class="fas fa-fire"></i>
+                        <p>7-Day Streak</p>
+                    </div>
+                    <div class="achievement unlocked">
+                        <i class="fas fa-brain"></i>
+                        <p>Mindful Mind</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-heart"></i>
+                        <p>30-Day Streak</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-trophy"></i>
+                        <p>Wellness Master</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-crown"></i>
+                        <p>Community Leader</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferences -->
+            <div class="preferences-section">
+                <h3>Personalization</h3>
+                <div class="preference-item">
+                    <label>AI Communication Style:</label>
+                    <select id="aiStyle">
+                        <option>Calm & Gentle</option>
+                        <option>Professional</option>
+                        <option>Friendly</option>
+                        <option>Direct</option>
+                    </select>
+                </div>
+                <div class="preference-item">
+                    <label>Preferred Language:</label>
+                    <select id="language">
+                        <option>English</option>
+                        <option>Hindi</option>
+                        <option>Marathi</option>
+                        <option>Tamil</option>
+                        <option>Telugu</option>
+                        <option>Bengali</option>
+                        <option>Kannada</option>
+                        <option>Gujarati</option>
+                    </select>
+                </div>
+                <div class="preference-item">
+                    <label>
+                        <input type="checkbox" checked> Enable notifications
+                    </label>
+                </div>
+                <button class="btn btn-primary" onclick="savePreferences()">Save Preferences</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Support Section -->
+    <section id="chat" class="section">
+        <div class="section-header">
+            <h2>AI Chat Support</h2>
+            <p>Get instant help and support from our AI assistant</p>
+        </div>
+
+        <div class="chat-wrapper">
+            <!-- Relaxation Activities Sidebar -->
+            <div class="relaxation-sidebar">
+                <h3>Quick Relaxation</h3>
+                <div class="relaxation-activities">
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('breathing')">
+                        <i class="fas fa-wind"></i>
+                        <span>Breathing</span>
+                    </button>
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('meditation')">
+                        <i class="fas fa-spa"></i>
+                        <span>Meditation</span>
+                    </button>
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('music')">
+                        <i class="fas fa-music"></i>
+                        <span>Calm Music</span>
+                    </button>
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('nature')">
+                        <i class="fas fa-tree"></i>
+                        <span>Nature Sounds</span>
+                    </button>
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('stretch')">
+                        <i class="fas fa-hands-praying"></i>
+                        <span>Quick Stretch</span>
+                    </button>
+                    <button class="relaxation-btn" onclick="startQuickRelaxation('gratitude')">
+                        <i class="fas fa-heart"></i>
+                        <span>Gratitude</span>
+                    </button>
+                </div>
+
+                <div class="relaxation-tips">
+                    <h4>Wellness Tips</h4>
+                    <div class="tip-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Take 5 deep breaths when feeling overwhelmed</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Practice gratitude by listing 3 things you're thankful for</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Take a 10-minute walk to refresh your mind</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Quick Action Buttons -->
+                <div class="chat-quick-actions">
+                    <button class="quick-action-btn" onclick="sendQuickMessage('I feel anxious')">
+                        <i class="fas fa-flushed"></i> I feel anxious
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('I need help with stress')">
+                        <i class="fas fa-tired"></i> Help with stress
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('I feel sad')">
+                        <i class="fas fa-frown"></i> I feel sad
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('I need motivation')">
+                        <i class="fas fa-fire"></i> Need motivation
+                    </button>
+                </div>
+
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <h3>AI Chat Support</h3>
+                    <div class="chat-controls">
+                        <button class="chat-settings-btn" onclick="openLanguageSettings()" title="Language Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+
+            <!-- Chat Messages Area -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message ai-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p id="welcomeMessage">Hello! I'm here to listen and support you. How are you feeling today? You can type or use voice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listening Status -->
+            <div class="listening-status" id="listeningStatus" style="display: none;">
+                <div class="listening-indicator">
+                    <span class="pulse"></span>
+                    <span id="listeningText">Listening...</span>
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Type your message or click mic to speak..." 
+                        onkeypress="handleChatKeypress(event)"
+                    >
+                    <button class="mic-btn" onclick="toggleVoiceInput()" title="Click to speak">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <button class="send-btn" onclick="sendChatMessage()" title="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Settings Modal -->
+    <div id="languageModal" class="modal">
+        <div class="modal-content language-modal">
+            <span class="close" onclick="closeLanguageSettings()">&times;</span>
+            <h2>Select Language</h2>
+            <div class="language-options">
+                <button class="language-btn" onclick="setLanguage('en')">
+                    <i class="fas fa-check" id="check-en"></i>
+                    <span>English</span>
+                </button>
+                <button class="language-btn" onclick="setLanguage('hi')">
+                    <i class="fas fa-check" id="check-hi"></i>
+                    <span>हिंदी (Hindi)</span>
+                </button>
+                <button class="language-btn" onclick="setLanguage('mr')">
+                    <i class="fas fa-check" id="check-mr"></i>
+                    <span>मराठी (Marathi)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mind-Care Feed Section -->
+    <section id="feed-section" class="section">
+        <div class="section-header">
+            <h2>Daily Mind-Care Feed</h2>
+            <p>Scroll for quick tips, affirmations & meditations</p>
+        </div>
+
+        <div class="mindcare-feed">
+            <div class="feed-card">
+                <div class="feed-type">💡 Tip</div>
+                <p>Take 5 deep breaths before responding to stress. It activates your parasympathetic nervous system.</p>
+            </div>
+            <div class="feed-card">
+                <div class="feed-type">✨ Affirmation</div>
+                <p>You are stronger than you think. Every challenge you overcome makes you more resilient.</p>
+            </div>
+            <div class="feed-card">
+                <div class="feed-type">🎯 Micro-Habit</div>
+                <p>Drink a glass of water right now. Hydration improves mood and focus instantly.</p>
+            </div>
+            <div class="feed-card">
+                <div class="feed-type">🧘 Meditation</div>
+                <p>Try a 2-minute body scan: Notice sensations from head to toe without judgment.</p>
+            </div>
+            <div class="feed-card">
+                <div class="feed-type">📚 Story</div>
+                <p>Sarah struggled with anxiety for years. Today, she completed her first marathon. Progress isn't linear, but it's real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal (Login/Signup) -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>Welcome to CalmLYF</h2>
+                    <p>Your Mental Wellness Companion</p>
+                </div>
+
+                <!-- User Type Selection -->
+                <div id="userTypeSelection" class="auth-section active">
+                    <h3>Select Your Role</h3>
+                    <div class="user-type-buttons">
+                        <button class="user-type-btn" onclick="selectUserType('client')">
+                            <i class="fas fa-user"></i>
+                            <span>I'm a Client</span>
+                        </button>
+                        <button class="user-type-btn" onclick="selectUserType('doctor')">
+                            <i class="fas fa-stethoscope"></i>
+                            <span>I'm a Doctor</span>
+                        </button>
+                    </div>
+                    <button class="btn btn-secondary btn-full" onclick="continueAsGuest()">
+                        Continue as Guest
+                    </button>
+                </div>
+
+                <!-- Login/Signup Forms -->
+                <div id="authForms" class="auth-section" style="display: none;">
+                    <div class="auth-tabs">
+                        <button class="auth-tab-btn active" onclick="switchAuthTab('login-form')">Login</button>
+                        <button class="auth-tab-btn" onclick="switchAuthTab('signup-form')">Sign Up</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form active" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                        <p class="form-footer">Don't have an account? <a href="#" onclick="event.preventDefault(); switchAuthTab('signup-form')">Sign up</a></p>
+                    </form>
+
+                    <!-- Signup Form -->
+                    <form id="signup-form" class="auth-form" onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                        <p class="form-footer">Already have an account? <a href="#" onclick="event.preventDefault(); switchAuthTab('login-form')">Sign in</a></p>
+                    </form>
+
+                    <button class="btn btn-link" onclick="backToUserType()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+
+                <!-- Demo Mode Info -->
+                <div class="demo-info">
+                    <p><strong>Demo Mode:</strong> Use any email/password combination to log in.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Therapist Matching Modal -->
+    <div id="therapistMatchingModal" class="modal">
+        <div class="modal-content therapist-matching-modal">
+            <span class="close" onclick="closeTherapistMatching()">&times;</span>
+            
+            <!-- Questionnaire Step -->
+            <div id="questionnaireStep" class="matching-step active">
+                <h2>Let's Find Your Perfect Therapist</h2>
+                <p style="color: #6b7280; margin-bottom: 2rem;">Answer a few questions to get matched with therapists who understand your needs</p>
+                
+                <div id="questionnaireContainer">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button class="btn btn-secondary" id="prevQuestionBtn" onclick="previousQuestion()" style="display: none;">Previous</button>
+                    <button class="btn btn-primary" id="nextQuestionBtn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <!-- Results Step -->
+            <div id="resultsStep" class="matching-step" style="display: none;">
+                <h2>Your Matched Therapists</h2>
+                <p style="color: #6b7280; margin-bottom: 2rem;">Based on your answers, here are therapists who can help you</p>
+                
+                <div id="therapistResults" class="therapist-results-grid">
+                    <!-- Matched therapists will be displayed here -->
+                </div>
+                
+                <button class="btn btn-secondary" onclick="restartMatching()" style="margin-top: 2rem;">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift Membership Modal -->
+    <div id="giftMembershipModal" class="modal">
+        <div class="modal-content gift-membership-modal">
+            <span class="close" onclick="closeGiftForm()">&times;</span>
+            
+            <!-- Gift Form Step -->
+            <div id="giftFormStep" class="gift-step active">
+                <h2>Give the gift of therapy</h2>
+                <p style="color: #6b7280; margin-bottom: 2rem;">Fill out this short form to send your CalmLYF membership gift.</p>
+                
+                <form id="giftMembershipForm" onsubmit="submitGiftForm(event)">
+                    <div class="gift-form-section">
+                        <h3>From:</h3>
+                        <div class="form-group">
+                            <label>Full name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="giverName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your email <span style="color: #ef4444;">*</span></label>
+                            <input type="email" id="giverEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="gift-form-section">
+                        <h3>To:</h3>
+                        <div class="form-group">
+                            <label>Recipient's name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="recipientName" placeholder="Recipient's full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Recipient's email <span style="color: #ef4444;">*</span></label>
+                            <input type="email" id="recipientEmail" placeholder="recipient@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Recipient's phone number (optional)</label>
+                            <input type="tel" id="recipientPhone" placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label>Gift message</label>
+                            <textarea id="giftMessage" rows="4" placeholder="Write a personal message to your recipient..."></textarea>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="button" class="btn btn-secondary" onclick="closeGiftForm()" style="flex: 1;">Cancel</button>
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">Continue to Payment</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Payment Step -->
+            <div id="giftPaymentStep" class="gift-step" style="display: none;">
+                <h2>Payment Information</h2>
+                <p style="color: #6b7280; margin-bottom: 2rem;">Enter payment information to start</p>
+                
+                <div class="gift-cost-info">
+                    <div class="cost-card">
+                        <h3>Cost: $80 USD per week</h3>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Charged every 4 weeks</p>
+                        <ul style="text-align: left; color: #6b7280; margin-bottom: 1rem;">
+                            <li>Unlimited text, video, audio messaging</li>
+                            <li>Weekly live session (video, phone or chat)</li>
+                            <li>Get therapy anytime, anywhere</li>
+                            <li>No scheduling required</li>
+                        </ul>
+                        <div class="charge-amount">
+                            <strong>Your card will be charged $320 USD when your recipient is matched with a therapist.</strong>
+                            <p style="color: #10b981; margin-top: 0.5rem;">You will not be charged now.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="giftPaymentForm" onsubmit="submitGiftPayment(event)">
+                    <div class="form-group">
+                        <label>Card Number <span style="color: #ef4444;">*</span></label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Expiry Date <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="cardCVV" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cardholder Name <span style="color: #ef4444;">*</span></label>
+                        <input type="text" id="cardholderName" placeholder="Name on card" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Billing Address <span style="color: #ef4444;">*</span></label>
+                        <input type="text" id="billingAddress" placeholder="Street address" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>City <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="billingCity" required>
+                        </div>
+                        <div class="form-group">
+                            <label>State <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="billingState" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="billingZip" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="giftAgreement" required style="width: auto; margin-top: 0.25rem;">
+                            <span style="font-size: 0.9rem;">By gifting this membership, you agree not to disclose any information related to the recipient's interest and use of CalmLYF to anyone other than the recipient or CalmLYF staff.</span>
+                        </label>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="button" class="btn btn-secondary" onclick="backToGiftForm()" style="flex: 1;">Back</button>
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">Complete Gift</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Confirmation Step -->
+            <div id="giftConfirmationStep" class="gift-step" style="display: none;">
+                <div class="confirmation-content">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Gift a CalmLYF membership</h2>
+                    <p class="confirmation-message">Thank you for choosing CalmLYF for you and your loved one's therapy needs.</p>
+
+                    <div class="confirmation-details">
+                        <h3>What happens next?</h3>
+                        <ul>
+                            <li>Your recipient will get your invitation via email and text (if applicable).</li>
+                            <li>They will fill out the matching questionnaire and get matched with a therapist.</li>
+                            <li>Once matched, they can start their therapy journey with a licensed therapist. You will not get charged until they are matched.</li>
+                        </ul>
+
+                        <h3>What if my gift recipient does not like their therapist?</h3>
+                        <p>Your recipient can switch therapists at any time. CalmLYF has over 32,000 therapists worldwide with different qualifications and areas of expertise.</p>
+
+                        <h3>How much will it cost?</h3>
+                        <p>With CalmLYF your loved one can have professional therapy for only $80 USD per week, charged every 4 weeks. CalmLYF membership includes a weekly live session (video, phone or chat), and the ability to message your therapist anytime, from any internet-connected device, wherever you are. The subscription is billed and renewed every 4 weeks, starting when your recipient is matched to a therapist.</p>
+
+                        <h3>Will I be charged now?</h3>
+                        <p>No. You will be charged when the gift recipient signs up in CalmLYF and is matched to a therapist.</p>
+
+                        <h3>When does the gift membership end?</h3>
+                        <p>You can stop covering the cost of therapy at any time. If you stop, your recipient can continue out of pocket without any interruption. We will also stop membership renewal charges if your recipient decides they want to cancel their membership.</p>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" onclick="closeGiftForm()" style="margin-top: 2rem;">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Booking Modal -->
+    <div id="sessionBookingModal" class="modal">
+        <div class="modal-content session-booking-modal">
+            <span class="close" onclick="closeSessionBooking()">&times;</span>
+            <h2 id="bookingTherapistName">Book Session</h2>
+            <p style="color: #6b7280; margin-bottom: 2rem;">Fill in the details to schedule your session</p>
+            
+            <form id="sessionBookingForm" onsubmit="submitSessionBooking(event)">
+                <div class="form-group">
+                    <label>Session Date <span style="color: #ef4444;">*</span></label>
+                    <input type="date" id="sessionDate" required min="">
+                </div>
+                
+                <div class="form-group">
+                    <label>Session Time <span style="color: #ef4444;">*</span></label>
+                    <input type="time" id="sessionTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Session Duration <span style="color: #ef4444;">*</span></label>
+                    <select id="sessionDuration" required>
+                        <option value="">Select duration</option>
+                        <option value="30">30 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60" selected>60 minutes</option>
+                        <option value="90">90 minutes</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Communication Method <span style="color: #ef4444;">*</span></label>
+                    <select id="communicationMethod" required>
+                        <option value="">Select method</option>
+                        <option value="video">Video Call</option>
+                        <option value="phone">Phone Call</option>
+                        <option value="chat">Text Chat</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Phone Number <span style="color: #ef4444;">*</span></label>
+                    <input type="tel" id="clientPhone" placeholder="+91 98765 43210" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Email <span style="color: #ef4444;">*</span></label>
+                    <input type="email" id="clientEmail" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Session Notes (Optional)</label>
+                    <textarea id="sessionNotes" rows="4" placeholder="Any specific topics you'd like to discuss or concerns you have..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Emergency Contact (Optional)</label>
+                    <input type="text" id="emergencyContact" placeholder="Name and phone number">
+                </div>
+                
+                <div class="form-group">
+                    <h4 style="margin-bottom: 1rem;">Session Reminders</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="reminderEmail" checked>
+                            <span>Email reminder 24 hours before session</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="reminderSMS">
+                            <span>SMS reminder 2 hours before session</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="reminderEmailDay">
+                            <span>Email reminder on the day of session</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeSessionBooking()" style="flex: 1;">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Crisis Modal -->
+    <div id="crisisModal" class="modal">
+        <div class="modal-content crisis-modal">
+            <span class="close" onclick="closeCrisisModal()">&times;</span>
+            <h2>We're Here for You</h2>
+            <p>If you're in crisis, please reach out to someone who can help:</p>
+            <div class="crisis-resources">
+                <div class="resource">
+                    <h4>Emergency Helpline</h4>
+                    <p>Call: 1-800-273-8255</p>
+                </div>
+                <div class="resource">
+                    <h4>Crisis Text Line</h4>
+                    <p>Text HOME to 741741</p>
+                </div>
+                <div class="resource">
+                    <h4>International Association for Suicide Prevention</h4>
+                    <p>https://www.iasp.info/resources/Crisis_Centres/</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="connectWithTherapist()">Connect with Therapist</button>
+            <button class="btn btn-secondary" onclick="closeCrisisModal()">I'm Safe</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
